@@ -1,7 +1,14 @@
 package com.pivotal.spring.REST;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
+	@Id
+	@GeneratedValue
 	private int userId;
 	private String userName;
 	public User(int userId, String userName) {

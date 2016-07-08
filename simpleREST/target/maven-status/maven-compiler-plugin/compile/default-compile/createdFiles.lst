@@ -1,0 +1,4 @@
+com\pivotal\spring\REST\User.class
+com\pivotal\spring\REST\UserApi.class
+com\pivotal\spring\REST\UserRepository.class
+com\pivotal\spring\simpleREST\App.class

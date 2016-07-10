@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserApi {
-	@Autowired
+	@Autowired(required=false)
 	UserRepository userRepository;
 	@RequestMapping(path="/user/{userId}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
 	public User getUser(@PathVariable("userId") int userId){

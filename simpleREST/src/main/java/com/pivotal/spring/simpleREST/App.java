@@ -17,7 +17,6 @@ import com.pivotal.spring.REST.UserRepository;
  * Hello world!
  *
  */
-@Configuration
 @ComponentScan(basePackages={"com.pivotal.spring.REST"})
 @SpringBootApplication
 public class App extends SpringBootServletInitializer{

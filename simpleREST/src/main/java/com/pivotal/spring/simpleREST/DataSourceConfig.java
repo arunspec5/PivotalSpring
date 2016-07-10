@@ -1,11 +1,9 @@
 package com.pivotal.spring.simpleREST;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import org.springframework.boot.orm.jpa.EntityScan;
-import org.springframework.cloud.Cloud;
-import org.springframework.cloud.CloudFactory;
-import org.springframework.cloud.service.ServiceInfo;
+import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -20,13 +18,9 @@ import com.pivotal.spring.REST.UserRepository;
 @Profile("cloud")
 @EntityScan(basePackageClasses=User.class)
 @EnableJpaRepositories(basePackageClasses=UserRepository.class)
-public class DataSourceConfig {
+public class DataSourceConfig extends AbstractCloudConfig {
     @Bean
     public DataSource dataSource() {
-        CloudFactory cloudFactory = new CloudFactory();
-        Cloud cloud = cloudFactory.getCloud();
-         ServiceInfo serviceInfo = cloud.getServiceInfo("cf-spring-db");
-         System.out.println("serviceInfo "+serviceInfo.getId());
-        return cloud.getServiceConnector(serviceInfo.getId(), DataSource.class, null);
+        return connectionFactory().dataSource();
     }
 }

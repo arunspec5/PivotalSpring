@@ -1,24 +1,24 @@
 package com.pivotal.spring.simpleREST;
 
-import javax.persistence.EntityManagerFactory;
+import javax.activation.DataSource;
 
-import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.cloud.Cloud;
+import org.springframework.cloud.CloudFactory;
+import org.springframework.cloud.service.ServiceInfo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EntityScan(basePackages={"com.pivotal.spring.REST"})
-@EnableJpaRepositories(basePackages={"com.pivotal.spring.REST"})
-@EnableTransactionManagement
 public class WebConfig {
 
-	//@Bean
-    public HibernateJpaSessionFactoryBean sessionFactory(EntityManagerFactory emf) {
-         HibernateJpaSessionFactoryBean factory = new HibernateJpaSessionFactoryBean();
-         factory.setEntityManagerFactory(emf);
-         return factory;
+@Configuration
+public class DataSourceConfig {
+    @Bean
+    public DataSource dataSource() {
+        CloudFactory cloudFactory = new CloudFactory();
+        Cloud cloud = cloudFactory.getCloud();
+         ServiceInfo serviceInfo = cloud.getServiceInfo("cf-spring-db");
+        return cloud.getServiceConnector(serviceInfo.getId(), DataSource.class, null);
     }
+}
 }

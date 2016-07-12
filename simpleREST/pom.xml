@@ -28,7 +28,7 @@
 					<space>development</space>
 					<appname>simpleREST</appname>
 					<url>simpleREST.cfapps.io</url>
-					<memory>1000</memory>
+					<memory>1500</memory>
 					<instances>1</instances>
 					<server>pivotal</server>
 				</configuration>

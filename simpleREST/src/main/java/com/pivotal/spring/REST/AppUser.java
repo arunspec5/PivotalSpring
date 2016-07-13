@@ -2,19 +2,19 @@ package com.pivotal.spring.REST;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class User {
+@Table(name="AppUser")
+public class AppUser {
 
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	public User(int userId, String userName) {
-		this.setUserId(userId);
-		this.setUserName(userName);
-	}
 	public String getUserName() {
 		return userName;
 	}

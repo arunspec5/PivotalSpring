@@ -28,9 +28,18 @@
 					<space>development</space>
 					<appname>simpleREST</appname>
 					<url>simpleREST.cfapps.io</url>
-					<memory>1500</memory>
+					<memory>512</memory>
 					<instances>1</instances>
 					<server>pivotal</server>
+					<services>
+                        <service>
+                            <name>cf-spring-db</name>
+                            <label>elephantsql</label>
+                            <provider>elephantsql</provider>
+                            <version>n/a</version>
+                            <plan>turtle</plan>
+                        </service>
+                    </services>
 				</configuration>
 			</plugin>
 			<plugin>

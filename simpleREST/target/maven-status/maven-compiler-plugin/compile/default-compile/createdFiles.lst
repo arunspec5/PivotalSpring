@@ -1,5 +1,5 @@
-com\pivotal\spring\REST\User.class
 com\pivotal\spring\REST\App.class
 com\pivotal\spring\REST\UserApi.class
+com\pivotal\spring\REST\AppUser.class
 com\pivotal\spring\REST\UserRepository.class
 com\pivotal\spring\REST\DataSourceConfig.class

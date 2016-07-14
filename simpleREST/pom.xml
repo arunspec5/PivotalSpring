@@ -8,11 +8,11 @@
 
 	<name>simpleREST</name>
 	<url>http://maven.apache.org</url>
-	  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.3.6.RELEASE</version>
-  </parent>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.6.RELEASE</version>
+	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -32,14 +32,14 @@
 					<instances>1</instances>
 					<server>pivotal</server>
 					<services>
-                        <service>
-                            <name>cf-spring-db</name>
-                            <label>elephantsql</label>
-                            <provider>elephantsql</provider>
-                            <version>n/a</version>
-                            <plan>turtle</plan>
-                        </service>
-                    </services>
+						<service>
+							<name>cf-spring-db</name>
+							<label>elephantsql</label>
+							<provider>elephantsql</provider>
+							<version>n/a</version>
+							<plan>turtle</plan>
+						</service>
+					</services>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -86,13 +86,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-spring-service-connector</artifactId>
-    </dependency>
-    <dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-cloudfoundry-connector</artifactId>
-  </dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+		</dependency>
 	</dependencies>
 </project>

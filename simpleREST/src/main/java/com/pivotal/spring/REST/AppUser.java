@@ -13,7 +13,13 @@ public class AppUser {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int userId;
+	private Integer userId;
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	private String userName;
 	public String getUserName() {
 		return userName;
@@ -21,11 +27,6 @@ public class AppUser {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+
 
 }

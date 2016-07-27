@@ -1,6 +1,6 @@
 ---
 applications:
 - name: simpleREST
-  memory: 256M
+  memory: 320M
   instances: 1
   random-route: true

@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,15 +22,14 @@ public class UserApi {
 	private Receiver receiver;
 	
 	@RequestMapping(path="/user/{userId}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_VALUE)
-	public AppUser getUser(@PathVariable("userId") int userId) throws InterruptedException{
-		AppUser user = userRepository.findOne(userId);
-		rabbitTemplate.convertAndSend("spring-boot", "Hello from RabbitMQ!");
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+	public User getUser(@PathVariable("userId") int userId) throws InterruptedException{
+		User user = userRepository.findOne(userId);
+		rabbitTemplate.convertAndSend("spring-boot", user);
 		return user;
 	}
 	
 	@RequestMapping(path="/user", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody AppUser addUser(@RequestBody AppUser user){
+	public @ResponseBody User addUser(@RequestBody User user){
 		System.out.println(user.getUserId()+"     "+user.getUserName());
 		user = userRepository.save(user);
 		return user;

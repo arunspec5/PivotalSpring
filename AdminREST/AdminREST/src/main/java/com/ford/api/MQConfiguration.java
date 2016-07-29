@@ -55,7 +55,7 @@ final static String queueName = "spring-boot";
 				MessageListener ml= (message) -> {
 					JsonMessageConverter jmc = new JsonMessageConverter();
 			    	User user = (User)jmc.fromMessage(message);
-					System.out.println("Received <" + user.getUserId() + "    "+ user.getUserName() + ">");
+					System.out.println("Received MQ <" + user.getUserId() + "    "+ user.getUserName() + ">");
 			};
 			return ml;
 	    }
